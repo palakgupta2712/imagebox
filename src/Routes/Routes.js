@@ -5,8 +5,9 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
+
 import Feed from "../components/Feed";
-import Uploaded from "../components/Uploaded";
+import Uploaded from "../../src/components/Uploaded/Uploaded";
 
 function Routes() {
   return (

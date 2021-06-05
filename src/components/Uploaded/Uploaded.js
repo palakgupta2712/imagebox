@@ -1,11 +1,12 @@
 import React from "react";
-import Explore from "./Explore";
+import Explore from "../Explore";
+import UploadButton from "./UploadButton";
 
 function Uploaded() {
   return (
     <div>
       <Explore />
-      Uploaded
+      <UploadButton />
     </div>
   );
 }
