@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Storage } from "aws-amplify";
 import styled from "styled-components";
 import { IoIosShareAlt, IoIosHeartEmpty } from "react-icons/io";
+import { MdDelete } from "react-icons/md";
+
+import { UserContext } from "../../context/UserContext";
 
 const Image = ({ imageData }) => {
+  const user = useContext(UserContext);
   const [url, setUrl] = useState([]);
 
   const loadImageUrl = async (imageData) => {
@@ -39,9 +43,14 @@ const Image = ({ imageData }) => {
               color: "white",
               fontSize: "18px",
               cursor: "pointer",
-              marginLeft: "7px",
+              margin: "0px 7px",
             }}
           />
+          {user.username === imageData.uploadedBy && (
+            <MdDelete
+              style={{ color: "white", fontSize: "18px", cursor: "pointer" }}
+            />
+          )}
         </IconContainer>
       </Details>
       <Creator>
