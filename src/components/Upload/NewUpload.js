@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { DataStore } from "@aws-amplify/datastore";
-import { Image } from "../../models";
+import { ImageModel } from "../../models";
 import { BiUpload } from "react-icons/bi";
 
 import Amplify, { Storage } from "aws-amplify";
@@ -25,7 +25,7 @@ function NewUpload() {
 
     const res = await Storage.put(KEY, file).then(
       await DataStore.save(
-        new Image({
+        new ImageModel({
           title: title,
           uploadedBy: user.username,
           uploadedOn: new Date().toString(),
