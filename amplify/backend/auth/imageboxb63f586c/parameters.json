@@ -1,6 +1,6 @@
 {
     "identityPoolName": "imageboxb63f586c_identitypool_b63f586c",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "imagebb63f586c",
     "userPoolName": "imageboxb63f586c_userpool_b63f586c",
     "autoVerifiedAttributes": [
