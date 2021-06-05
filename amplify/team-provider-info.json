@@ -10,6 +10,11 @@
       "StackName": "amplify-imagebox-dev-133111",
       "StackId": "arn:aws:cloudformation:ap-south-1:920079206663:stack/amplify-imagebox-dev-133111/34ba8630-c5d4-11eb-833b-06c1027d650e",
       "AmplifyAppId": "d1novlfate0pw5"
+    },
+    "categories": {
+      "auth": {
+        "imageboxb63f586c": {}
+      }
     }
   }
 }

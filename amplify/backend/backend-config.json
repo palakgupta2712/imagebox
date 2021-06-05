@@ -1,1 +1,10 @@
-{}
+{
+  "auth": {
+    "imageboxb63f586c": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
