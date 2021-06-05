@@ -8,6 +8,7 @@ import {
 
 import Feed from "../components/Feed";
 import Uploaded from "../../src/components/Uploaded/Uploaded";
+import NewUpload from "../components/Upload/NewUpload";
 
 function Routes() {
   return (
@@ -16,6 +17,8 @@ function Routes() {
         <Switch>
           <Route path="/feed" component={Feed} />
           <Route path="/uploaded" component={Uploaded} />
+          <Route path="/new" component={NewUpload} />
+
           <Route
             path="/"
             render={() => {
