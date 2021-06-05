@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "Image": {
-            "name": "Image",
+        "ImageModel": {
+            "name": "ImageModel",
             "fields": {
                 "id": {
                     "name": "id",
@@ -56,7 +56,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Images",
+            "pluralName": "ImageModels",
             "attributes": [
                 {
                     "type": "model",
@@ -83,5 +83,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "696eb627e62d9ebbcc190f3181a4af06"
+    "version": "2b3a342ff8002ae28f4ca2c418608e47"
 };

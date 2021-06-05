@@ -1,7 +1,8 @@
-type Image @model @auth(rules: [{allow: public}]) {
+type ImageModel @model @auth(rules: [{allow: public}]) {
   id: ID!
   title: String
   uploadedBy: String
   uploadedOn: String
   S3key: String
 }
+ 

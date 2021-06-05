@@ -4,7 +4,7 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
-export declare class Image {
+export declare class ImageModel {
   readonly id: string;
   readonly title?: string;
   readonly uploadedBy?: string;
@@ -12,6 +12,6 @@ export declare class Image {
   readonly S3key?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  constructor(init: ModelInit<Image>);
-  static copyOf(source: Image, mutator: (draft: MutableModel<Image>) => MutableModel<Image> | void): Image;
+  constructor(init: ModelInit<ImageModel>);
+  static copyOf(source: ImageModel, mutator: (draft: MutableModel<ImageModel>) => MutableModel<ImageModel> | void): ImageModel;
 }
