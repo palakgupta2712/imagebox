@@ -1,9 +1,11 @@
 import Auth from "@aws-amplify/auth";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { BiBox } from "react-icons/bi";
+import { UserContext } from "../context/UserContext";
 
-function Navbar({ user }) {
+function Navbar() {
+  const user = useContext(UserContext);
   return (
     <NavbarContainer>
       <NavLogo>

@@ -3,9 +3,10 @@ import Amplify from "aws-amplify";
 import { AmplifyAuthenticator, AmplifySignUp } from "@aws-amplify/ui-react";
 import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
 import awsconfig from "./aws-exports";
-import Explore from "./components/Explore";
+import { UserContext } from "./context/UserContext";
 import Navbar from "./components/Navbar";
 import Routes from "./Routes/Routes";
+
 Amplify.configure(awsconfig);
 
 const App = () => {
@@ -21,8 +22,10 @@ const App = () => {
 
   return authState === AuthState.SignedIn && user ? (
     <React.Fragment>
-      <Navbar user={user} />
-      <Routes />
+      <UserContext.Provider value={user}>
+        <Navbar />
+        <Routes />
+      </UserContext.Provider>
     </React.Fragment>
   ) : (
     <AmplifyAuthenticator>
