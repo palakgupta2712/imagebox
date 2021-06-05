@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Explore() {
@@ -9,8 +9,8 @@ export default function Explore() {
         to="/feed"
         activeStyle={{
           fontWeight: "bold",
-          color: "red",
-          borderBottom: "5px solid red",
+          color: "#e50914",
+          borderBottom: "5px solid #e50914",
         }}
       >
         <h2>Feed</h2>
@@ -19,8 +19,8 @@ export default function Explore() {
         to="/uploaded"
         activeStyle={{
           fontWeight: "bold",
-          color: "red",
-          borderBottom: "5px solid red",
+          color: "#e50914",
+          borderBottom: "5px solid #e50914",
         }}
       >
         <h2>Your items</h2>
@@ -37,6 +37,6 @@ const Container = styled.div`
 
 const Tab = styled(NavLink)`
   text-decoration: none;
-  color: black;
+  color: white;
   padding: 10px;
 `;

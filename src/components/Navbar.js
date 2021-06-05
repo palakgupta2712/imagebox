@@ -45,13 +45,14 @@ const NavLogo = styled.div`
   display: flex;
   align-items: center;
   margin-left: 50px;
-  border: 1px solid white;
+  border: 1px solid #e50914;
   padding: 10px;
   letter-spacing: 6px;
   @media (max-width: 600px) {
     margin: 10px;
     padding: 6px;
   }
+  color: #e50914;
 `;
 
 const NavMenu = styled.div`
