@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-imagebox-dev-133111-authRole",
+      "UnauthRoleArn": "arn:aws:iam::920079206663:role/amplify-imagebox-dev-133111-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::920079206663:role/amplify-imagebox-dev-133111-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-imagebox-dev-133111-deployment",
+      "UnauthRoleName": "amplify-imagebox-dev-133111-unauthRole",
+      "StackName": "amplify-imagebox-dev-133111",
+      "StackId": "arn:aws:cloudformation:ap-south-1:920079206663:stack/amplify-imagebox-dev-133111/34ba8630-c5d4-11eb-833b-06c1027d650e",
+      "AmplifyAppId": "d1novlfate0pw5"
+    }
+  }
+}
