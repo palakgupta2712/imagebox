@@ -1,13 +1,25 @@
+import Auth from "@aws-amplify/auth";
 import React from "react";
 import styled from "styled-components";
+import { BiBox } from "react-icons/bi";
 
-function Navbar() {
+function Navbar({ user }) {
   return (
     <NavbarContainer>
-      <NavLogo>ImageBox</NavLogo>
+      <NavLogo>
+        <BiBox style={{ margin: "0px 5px" }} />
+        ImageBox
+      </NavLogo>
       <NavMenu>
-        <p>Hi! username</p>
-        <Button>Logout</Button>
+        <p>Hi! {user.username}</p>
+        <Button
+          onClick={() => {
+            Auth.signOut();
+            window.location.reload();
+          }}
+        >
+          Logout
+        </Button>
       </NavMenu>
     </NavbarContainer>
   );
@@ -26,10 +38,20 @@ const NavbarContainer = styled.div`
   height: 80px;
   @media (max-width: 600px) {
     flex-direction: column;
+    height: 100px;
   }
 `;
 const NavLogo = styled.div`
+  display: flex;
+  align-items: center;
   margin-left: 50px;
+  border: 1px solid white;
+  padding: 10px;
+  letter-spacing: 6px;
+  @media (max-width: 600px) {
+    margin: 10px;
+    padding: 6px;
+  }
 `;
 
 const NavMenu = styled.div`
@@ -37,11 +59,21 @@ const NavMenu = styled.div`
   align-items: center;
   display: flex;
   margin-right: 20px;
+  @media (max-width: 600px) {
+    margin: 2px;
+  }
 `;
 
 const Button = styled.button`
   margin: 0px 14px;
-  padding: 8px 14px;
-  border: none;
+  padding: 8px 16px;
+  border: 1px solid white;
   font-size: 16px;
+  cursor: pointer;
+  border-radius: 7px;
+  background-color: black;
+  color: white;
+  &:hover {
+    background-color: #333333;
+  }
 `;

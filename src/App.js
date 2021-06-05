@@ -20,7 +20,7 @@ const App = () => {
 
   return authState === AuthState.SignedIn && user ? (
     <React.Fragment>
-      <Navbar />
+      <Navbar user={user} />
       <h1>Image Box</h1>
     </React.Fragment>
   ) : (
