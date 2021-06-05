@@ -6,7 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 
-import Feed from "../components/Feed";
+import Feed from "../components/Feed/Feed";
 import Uploaded from "../../src/components/Uploaded/Uploaded";
 import NewUpload from "../components/Upload/NewUpload";
 

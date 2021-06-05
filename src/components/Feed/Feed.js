@@ -1,11 +1,12 @@
 import React from "react";
-import Explore from "./Explore";
+import Explore from "../Explore";
+import Images from "./Images";
 
 function Feed() {
   return (
     <div>
       <Explore />
-      Feed
+      <Images />
     </div>
   );
 }
