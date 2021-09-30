@@ -4,6 +4,10 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+type ImageModelMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 export declare class ImageModel {
   readonly id: string;
   readonly title?: string;
@@ -12,6 +16,6 @@ export declare class ImageModel {
   readonly S3key?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  constructor(init: ModelInit<ImageModel>);
-  static copyOf(source: ImageModel, mutator: (draft: MutableModel<ImageModel>) => MutableModel<ImageModel> | void): ImageModel;
+  constructor(init: ModelInit<ImageModel, ImageModelMetaData>);
+  static copyOf(source: ImageModel, mutator: (draft: MutableModel<ImageModel, ImageModelMetaData>) => MutableModel<ImageModel, ImageModelMetaData> | void): ImageModel;
 }
