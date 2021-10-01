@@ -11,13 +11,17 @@ function Images() {
   }
 
   useEffect(() => {
-    getImagesData();
+    const subscription = DataStore.observe(ImageModel).subscribe((msg) => {
+      getImagesData();
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
 
   return (
     <Container>
       {imagesData.map((imageData) => (
-        <Image imageData={imageData} />
+        <Image key={imageData.id} imageData={imageData} />
       ))}
     </Container>
   );

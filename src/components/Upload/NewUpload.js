@@ -8,7 +8,7 @@ import awsconfig from "../../aws-exports";
 import styled from "styled-components";
 import { UserContext } from "../../context/UserContext";
 import BackButton from "./BackButton";
-import { Redirect, useHistory } from "react-router";
+import { useHistory } from "react-router";
 Amplify.configure(awsconfig);
 
 function NewUpload() {

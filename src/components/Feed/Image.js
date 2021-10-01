@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { IoIosShareAlt, IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { UserContext } from "../../context/UserContext";
+import { ImageModel } from "../../models";
+import { DataStore } from "@aws-amplify/datastore";
 
 const Image = ({ imageData }) => {
   const user = useContext(UserContext);
@@ -18,8 +20,13 @@ const Image = ({ imageData }) => {
 
   useEffect(() => {
     loadImageUrl(imageData);
-  }, []);
+  }, [imageData]);
 
+  async function handleDelete(id) {
+    const todelete = await DataStore.query(ImageModel, id);
+    DataStore.delete(todelete);
+    console.log(id);
+  }
   return (
     <Container>
       <img
@@ -62,7 +69,7 @@ const Image = ({ imageData }) => {
           {user.username === imageData.uploadedBy && (
             <MdDelete
               style={{ color: "white", fontSize: "18px", cursor: "pointer" }}
-              onClick={() => console.log(imageData)}
+              onClick={() => handleDelete(imageData.id)}
             />
           )}
         </IconContainer>
