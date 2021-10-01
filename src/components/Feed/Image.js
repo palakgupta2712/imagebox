@@ -26,6 +26,7 @@ const Image = ({ imageData }) => {
     const todelete = await DataStore.query(ImageModel, id);
     DataStore.delete(todelete);
     console.log(id);
+    window.location.reload();
   }
   return (
     <Container>

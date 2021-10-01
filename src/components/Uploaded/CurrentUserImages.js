@@ -21,9 +21,17 @@ function Images() {
 
   return (
     <Container>
-      {imagesData.map((imageData) => (
-        <Image imageData={imageData} />
-      ))}
+      {imagesData.length > 0 ? (
+        <>
+          {imagesData.map((imageData) => (
+            <Image imageData={imageData} />
+          ))}
+        </>
+      ) : (
+        <>
+          <Section>You haven't uploded any image.</Section>
+        </>
+      )}
     </Container>
   );
 }
@@ -38,4 +46,11 @@ const Container = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+`;
+
+const Section = styled.section`
+  background-color: white;
+  padding: 2rem;
+  font-size: 1.5rem;
+  border-radius: 0.25rem;
 `;

@@ -11,11 +11,10 @@ function Images() {
   }
 
   useEffect(() => {
-    const subscription = DataStore.observe(ImageModel).subscribe((msg) => {
-      getImagesData();
-    });
-
-    return () => subscription.unsubscribe();
+    // const subscription = DataStore.observe(ImageModel).subscribe((msg) => {
+    // });
+    // return () => subscription.unsubscribe();
+    getImagesData();
   }, []);
 
   return (

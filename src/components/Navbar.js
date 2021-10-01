@@ -3,13 +3,20 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { BiBox } from "react-icons/bi";
 import { UserContext } from "../context/UserContext";
+import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const user = useContext(UserContext);
   return (
     <NavbarContainer>
-      <NavLogo>
-        <BiBox style={{ margin: "0px 5px" }} />
+      <NavLogo href="/">
+        <BiBox
+          style={{ margin: "0px 5px" }}
+          onClick={() => {
+            <Redirect to="/" />;
+          }}
+        />
         ImageBox
       </NavLogo>
       <NavMenu>
@@ -43,13 +50,14 @@ const NavbarContainer = styled.div`
     height: 100px;
   }
 `;
-const NavLogo = styled.div`
+const NavLogo = styled.a`
   display: flex;
   align-items: center;
   margin-left: 50px;
   border: 1px solid #e50914;
   padding: 10px;
   letter-spacing: 6px;
+  text-decoration: none;
   @media (max-width: 600px) {
     margin: 10px;
     padding: 6px;

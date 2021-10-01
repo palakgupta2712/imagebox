@@ -148,6 +148,7 @@ const Button = styled.button`
   outline: none;
   border-radius: 50%;
   border: none;
+  cursor: pointer;
 `;
 
 const SaveButton = styled.button`
