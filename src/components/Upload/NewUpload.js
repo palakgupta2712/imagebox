@@ -2,20 +2,22 @@ import React, { useContext, useState } from "react";
 import { DataStore } from "@aws-amplify/datastore";
 import { ImageModel } from "../../models";
 import { BiUpload } from "react-icons/bi";
-
+import { TiTick } from "react-icons/ti";
 import Amplify, { Storage } from "aws-amplify";
 import awsconfig from "../../aws-exports";
 import styled from "styled-components";
 import { UserContext } from "../../context/UserContext";
 import BackButton from "./BackButton";
+import { Redirect, useHistory } from "react-router";
 Amplify.configure(awsconfig);
 
 function NewUpload() {
   const user = useContext(UserContext);
-
+  let history = useHistory();
   const [file, setFile] = useState();
   const [title, setTitle] = useState();
   const hiddenFileInput = React.useRef(null);
+  const [status, setStatus] = useState(false);
 
   async function uploadImage() {
     const filename = file.name.split(".");
@@ -35,10 +37,13 @@ function NewUpload() {
     );
 
     console.log(res);
+    history.goBack("/");
   }
   function handleChange(event) {
     const fileUploaded = event.target.files[0];
     setFile(fileUploaded);
+    console.log(fileUploaded.name);
+    setStatus(true);
   }
   const handleClick = (event) => {
     hiddenFileInput.current.click();
@@ -52,8 +57,18 @@ function NewUpload() {
           <div>
             <UploadContainer>
               <Button onClick={handleClick}>
-                <BiUpload style={{ fontSize: "30px" }} />
-                <p> Click to upload image</p>
+                {/* <p> Click to upload image</p> */}
+                {status ? (
+                  <div>
+                    <TiTick style={{ fontSize: "40px", color: "green" }} />{" "}
+                    <p>Image Uploaded</p>
+                  </div>
+                ) : (
+                  <div>
+                    <BiUpload style={{ fontSize: "30px" }} />
+                    <p>Click to upload image</p>
+                  </div>
+                )}
               </Button>
               <input
                 type="file"
@@ -123,7 +138,7 @@ const UploadContainer = styled.div`
   align-items: center;
   border: 1px dashed black;
   padding: 50px;
-  background-color: #ececec;
+  background-color: #fafafa;
   border-radius: 7px;
 `;
 

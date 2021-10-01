@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Storage } from "aws-amplify";
 import styled from "styled-components";
-import { IoIosShareAlt, IoIosHeartEmpty } from "react-icons/io";
+import { IoIosShareAlt, IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
-
 import { UserContext } from "../../context/UserContext";
 
 const Image = ({ imageData }) => {
   const user = useContext(UserContext);
   const [url, setUrl] = useState([]);
+  const [liked, setLiked] = useState(true);
 
   const loadImageUrl = async (imageData) => {
     await Storage.get(imageData.S3key).then((res) => {
@@ -35,9 +35,22 @@ const Image = ({ imageData }) => {
       <Details>
         <ImageTitle>{imageData.title}</ImageTitle>
         <IconContainer>
-          <IoIosHeartEmpty
-            style={{ color: "white", fontSize: "18px", cursor: "pointer" }}
-          />
+          {liked ? (
+            <IoIosHeartEmpty
+              style={{ color: "white", fontSize: "18px", cursor: "pointer" }}
+              onClick={() => {
+                setLiked(!liked);
+              }}
+            />
+          ) : (
+            <IoIosHeart
+              style={{ color: "red", fontSize: "18px", cursor: "pointer" }}
+              onClick={() => {
+                setLiked(!liked);
+              }}
+            />
+          )}
+
           <IoIosShareAlt
             style={{
               color: "white",
@@ -49,6 +62,7 @@ const Image = ({ imageData }) => {
           {user.username === imageData.uploadedBy && (
             <MdDelete
               style={{ color: "white", fontSize: "18px", cursor: "pointer" }}
+              onClick={() => console.log(imageData)}
             />
           )}
         </IconContainer>
